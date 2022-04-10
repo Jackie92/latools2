@@ -1,0 +1,50 @@
+<!--user.wxml-->
+<view id="body">
+	<view id="part_1">
+		<view id="avatarBox" >
+			<block wx:if="{{userInfo.user_state}}">
+				<image id="avatarPic" bindtap="bindViewTap"
+				src="{{userInfo.avatarUrl}}"
+				mode="cover"></image>
+			</block>
+			<block wx:else>
+				<image id="avatarPic" bindtap="bindViewTap" src="/imageFile/defaultHead.png" mode="cover"></image>
+			</block>
+			
+		</view>
+		<view id="nickNameBox">
+			<block wx:if="{{userInfo.user_state}}">
+				<view id="nickName">{{userInfo.nickName}}</view>
+				<view id="userId">{{userInfo.id}}</view>
+			</block>
+
+			<block wx:else>
+				<view id="nickName"><button type="primary" size="mini" bindtap="getUserInfoFun" > 登录 </button></view>
+				
+			</block>
+			
+		</view>
+		<view id="logoBox">
+			<image src="/imageFile/logo_page_my.png" id="logoPic"></image>
+		</view>
+
+	</view>
+
+	<view id="part_2">
+		<view class="swiper-des">
+			<view  class="swiper-des-block " wx:for="{{lessionList}}" wx:key="item" class="swiper-des-item">
+				<view wx:if="{{currenLession === item.id}}" class="swiper-des-block-current">{{item.name}}</view>
+				<view wx:else>{{item.name}}</view>
+			</view>
+		</view>
+		<swiper class="swiper lession-swiper" 	bindchange="changeLession"	previous-margin="50px" 	next-margin="50px">
+			<block wx:for="{{lessionList}}" wx:key="item" >
+				<swiper-item class="lession-pic" item-id="{{item.id}}" >
+					<image src="{{item.img}}" ></image>
+				</swiper-item>
+			</block>
+		</swiper>
+	</view>
+
+	
+</view>
