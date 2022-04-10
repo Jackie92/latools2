@@ -1,0 +1,102 @@
+<!--user.wxml-->
+<view id="body">
+	<view id="part_0">
+		<view id="avatarBox" >
+			<block wx:if="{{userInfo.user_state}}">
+				<image id="avatarPic" bindtap="bindViewTap"
+				src="{{userInfo.avatarUrl}}"
+				mode="cover"></image>
+			</block>
+			<block wx:else>
+				<image id="avatarPic" bindtap="bindViewTap" src="/imageFile/defaultHead.png" mode="cover"></image>
+			</block>
+			
+		</view>
+		<view id="nickNameBox">
+			<block wx:if="{{userInfo.user_state}}" >
+				<view bindtap="goToResume">
+				
+				<view id="nickName">{{userInfo.nickName}}</view>
+				<view id="phoneNumber">景观设计小口袋 <image src="/imageFile/edit_icon.png" style="width: 24rpx;height: 24rpx;margin-left: 20rpx;" ></image></view>
+				</view>
+			</block>
+
+			<block wx:else>
+				<view id="nickName"><button type="primary" size="mini" bindtap="getUserInfoFun" > 登录 </button></view>
+				
+			</block>
+			
+		</view>
+		<view id="logoBox">
+			<image src="/imageFile/logo_page_my.png" id="logoPic"></image>
+		</view>
+
+	</view>
+	<scroll-view id="part_1" scroll-x="true" class="scroll-view_H">
+		
+		<view  class="scroll-view-item_H flex-item {{cur_num==index?'flex-item-active':''}}" bindtap="tagTap1" data-num='{{index}}' wx:for="{{fenlei}}" wx:key="item">
+			{{item}}
+		</view>
+
+
+		<view id="flex-line" animation="{{animation}}"></view>
+
+	</scroll-view>
+
+	<view id="part_2">
+		
+		<view id="listBox">
+			<view wx:for="{{cur_package[cur_num]}}" wx:key='item' class="list-item" bindtap="goCourse" data-idx="{{index}}">
+				<image class="list-item-pic" src="{{item.packagePic}}" mode="aspectFill"></image>
+				<view class="list-item-content">
+					<view class="list-item-title">{{item.title}}</view>
+					<view class="list-item-detail">{{item.detail}}</view>
+					<view class="list-item-tips">
+						<view class="item-number">共{{item.project_num}}节</view>
+						<view class="item-chakan {{item.unread>0?'chakanTips':''}}" >查看</view>
+					</view>
+					<view class="list-item-expire" wx:if="{{item.expire_time}}">
+						<view class="item-expire">有效期至：{{item.expire_time}}</view>
+					</view>
+				</view>
+				
+			</view>
+		</view>
+
+		<!-- <view id="getMoreBox">
+			<image src="/imageFile/getMoreBtn.png" id="getMoreBtn"></image>
+		</view> -->
+	</view>
+
+
+
+	<view id="part_3" class="nav-box">
+		<view class="nav-item-1" bindtap="goHome">
+			<image class="nav-1-pic" src="/imageFile/nav_1.png"></image>
+		</view>
+
+		<view class="nav-item-2" bindtap="goDesign">
+			<image class="nav-2-pic" src="/imageFile/nav_2.png"></image>
+			<view class="nav-2-title">我的设计</view>
+			<view class="nav-2-line" wx:if="{{__pageName__ == 'design'}}"></view>
+		</view>
+		<view class="nav-item-3" bindtap="goMine">
+			<image class="nav-3-pic" src="/imageFile/nav_3.png"></image>
+			<view class="nav-3-title">我的</view>
+			<view class="nav-3-line" wx:if="{{__pageName__ == 'user'}}"></view>
+		</view>
+
+	</view>
+
+
+	<view id="alertBg" wx:if="{{alertPic}}">
+		<view id="alertBox">
+			<image src="{{alertPic}}" mode="aspectFill" id="alertPic"></image>
+		</view>
+	</view>
+	
+	<!-- <view id="sch_mine" catchtap="sch_mine">
+		<image id="yueke_img" src="/imageFile/appointment/order.png"></image>
+		<view>我的约课</view>
+	</view> -->
+</view>

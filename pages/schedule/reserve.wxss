@@ -1,0 +1,149 @@
+/* pages/schedule/reserve.wxss */
+
+.alertPic {
+	width:750rpx;
+	height: 375rpx;
+	border-radius: 20rpx;
+}
+
+#videoBtn{
+	width: 100rpx;
+    height: 100rpx;
+    position: relative;
+    left: 460rpx;
+    margin-top: -120rpx;
+    z-index: 9999;
+}
+
+#alertContent {
+	width: 650rpx;
+	margin: 25rpx 50rpx;
+}
+
+#alertTitle {
+	font-size: 32rpx;
+	font-weight: 700;
+	color: #333333;
+	line-height: 32rpx;
+}
+
+#alertStepNum {
+	margin-top: 12rpx;
+	margin-bottom: 24rpx;
+	font-size: 24rpx;
+	font-weight: 400;
+	color: #6E7586;
+	line-height: 34rpx;
+	letter-spacing: 1rpx;
+}
+
+.weight {
+	font-weight: 700;
+	margin-left: 25rpx;
+}
+
+.weight::before {
+	content: ' ';
+	position: absolute;
+	width: 12rpx;
+	height: 12rpx;
+	border-radius: 50%;
+	background: #FF9F00;
+	margin-top: 15rpx;
+	margin-left: -25rpx;
+}
+
+#alertMubiao {
+	font-size: 22rpx;
+	color: #333333;
+	line-height: 36rpx;
+	margin: 40rpx 0rpx;
+}
+
+#alertGongju {
+	font-size: 22rpx;
+	color: #333333;
+	line-height: 36rpx;
+}
+
+#alertBtn {
+	width: 430rpx;
+	height: 110rpx;
+	margin: 0rpx 75rpx;
+	margin-top: 70rpx;
+	background-color: #FFE065;
+	border-radius: 55rpx;
+	text-align: center;
+	line-height: 110rpx;
+	font-weight: 700;
+
+}
+
+#lessonView{
+	width: auto;
+	padding:24rpx;
+	background-color: #FFE065;
+	border-radius: 20rpx;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	word-wrap: break-word;
+	-webkit-line-clamp:1;
+	-webkit-box-orient: vertical;
+	display: -webkit-box;
+}
+
+
+#daytimer{
+	display: flex;
+	justify-content: left;
+	width: 650rpx;
+}
+.boderView{
+	border:1px solid #bbb;
+	border-radius: 10rpx;
+	height: 50rpx;
+	padding: 10rpx;
+	line-height: 50rpx;
+	font-size: 27rpx;
+	font-weight: bolder;
+}
+#dayView{
+	flex:0 0 auto;
+	background-image: linear-gradient(to right, #FFE065 0rpx, #FFE065 75rpx,#fff 75rpx,#fff 100%);
+	margin-right: 20rpx;
+}
+#day_text{
+	margin: 0rpx 10rpx;
+}
+#timeView{
+	flex:0 0 auto;
+
+}
+#timerPic{
+	width: 54rpx;
+	height: 46rpx;
+	margin-right: 10rpx;
+	vertical-align: top;
+}
+
+.banbenView{
+	flex: 0 0 280rpx;
+	height: 70rpx;
+	border-radius: 20rpx;
+	line-height: 50rpx;
+	border: 1px solid #bbb;
+	padding: 10rpx;
+	text-align: center;
+	font-size: 27rpx;
+	font-weight: bolder;
+}
+.banbenActive{
+	background-color: #FFE065;
+}
+.banbenImg{
+	width: 50rpx;
+	height: 50rpx;
+	margin: 10rpx;
+	vertical-align: middle;
+}

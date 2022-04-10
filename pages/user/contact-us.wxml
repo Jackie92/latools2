@@ -1,0 +1,5 @@
+<!--pages/user/contact-us.wxml-->
+<view id="page">
+	<image id="bg" src='/imageFile/qr_box.png'></image>
+	<image id="QR" src="https://admin.cradlela-art.com/static/_cradle_/images/contact_us.png"></image>
+</view>

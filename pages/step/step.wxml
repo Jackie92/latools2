@@ -1,0 +1,140 @@
+<!--user.wxml-->
+
+<view id="videoMap" catchtap="changVideoShow" wx:if="{{videoShow}}">
+	<video poster="{{defaultPoster}}" src="{{step[stepNumber].s_video?step[stepNumber].s_video:''}}"
+		enable-auto-rotation="true" id="videoBox" catchtap="catchVideo"></video>
+	<button catchtap="playRate" data-rate="0.5">0.5倍速</button>
+	<button catchtap="playRate" data-rate="0.8">0.8倍速</button>
+	<button catchtap="playRate" data-rate="1">正常播放</button>
+	<button catchtap="playRate" data-rate="1.25">1.25倍速</button>
+	<button catchtap="playRate" data-rate="1.5">1.5倍速</button>
+	<button catchtap="playRate" data-rate="2">2倍速</button>
+</view>
+
+<scroll-view id="body" style="height:100%;" bindscrolltolower="getMoreFun" scroll-y="true" bindscroll="scrollFun">
+
+
+	<view id="part_0">
+		
+		<view id="lunbo">
+			<swiper class="swiper" autoplay="true" circular="true" interval="5000" duration="500">
+				<swiper-item>
+					<image class="lunbo-pic"
+						src="{{step[stepNumber].s_pic?step[stepNumber].s_pic:'/imageFile/default.png'}}"
+						mode="aspectFill" bindtap="preViewImg"></image>
+				</swiper-item>
+			</swiper>
+			<image src="/imageFile/videoBtn.png" id="videoBtn" mode="center" catchtap="changVideoShow"
+				wx:if="{{step[stepNumber].s_video && step[stepNumber].s_video!=0 && step[stepNumber].s_video!='undefined'}}">
+			</image>
+		</view>
+		<view id="new_title_1">{{step[stepNumber].s_title}}</view>
+
+
+		<!-- <view id="box_1">
+			<image id="logo_pic" src="/imageFile/logo_page_my.png"></image>
+			<view id="title_1"> {{step[stepNumber].s_title}} </view>
+		</view> -->
+	</view>
+
+	<view id="part_1" class="{{menuFixed?'part_1_fixed':''}}">
+
+		<view id="part_0_0" wx:if="{{menuFixed}}">
+			<view class="my-title">{{step[stepNumber].s_title}}</view>
+		</view>
+		<!-- <view id="allBox" wx:for="{{step[stepNumber].s_contain}}" wx:key="item"
+				class="flex-item {{cur_num==index?'flex-item-active':''}}" bindtap="tagTap0" data-num='{{index}}'>
+				{{item.title}}
+			</view>
+		<view id="flex-line" animation="{{animation}}"></view> -->
+
+		<scroll-view class="scroll-view_H" scroll-x="true" style="width: 100%;height: 100rpx;">
+			<view bindtap="tagTap0" class="scroll-view-item_H menuItem {{cur_num==index?'menuItem-active':''}}"
+				wx:for="{{menuList}}" wx:key="item" data-num="{{index}}" data-id="{{item.id}}">
+				{{item.title}}
+			</view>
+			<view id="flex-line" animation="{{animation}}"></view>
+		</scroll-view>
+		<view id="tagBox">
+			<view>
+				<scroll-view class="scroll-view_H" scroll-x="true" style="width: 100%;">
+					<view bindtap="tagTap1" class="scroll-view-item_H tagItem {{index==__tag1__?'tagItem-active':''}}"
+						wx:for="{{menuList[cur_num].children}}" wx:key="item" data-num="{{index}}"
+						data-id="{{item.id}}">
+						{{item.title}}
+					</view>
+				</scroll-view>
+			</view>
+
+			
+		</view>
+	</view>
+
+	<view id="part_2">
+
+		<!-- <view style="margin-top:20rpx;">
+			<scroll-view class="scroll-view_H" scroll-x="true" style="width: 100%; margin-top:20rpx;">
+				<view bindtap="drop_1" class="scroll-view-item_H tagItem {{index==__tag2__?'tagItem-active':''}}"
+					wx:for="{{menuList[cur_num].children[__tag1__].children}}" wx:key="item" data-num="{{index}}"
+					data-cid="{{item.id}}">
+					{{item.title}}
+				</view>
+			</scroll-view>
+		</view> -->
+		<view style="margin-top:20rpx;" class="dropBox">
+			<view class="dropItem" wx:if="{{menuList[cur_num].children[__tag1__].children[drop_idx_1]['title']}}">
+				<picker bindchange="drop_event" data-dropper="drop_idx_1" value="{{drop_idx_1}}" range="{{menuList[cur_num].children[__tag1__].children}}" range-key="title">
+					<view class="dropPicker">{{menuList[cur_num].children[__tag1__].children[drop_idx_1]['title']}}</view>
+					<view class="dropPicker_sanjiao">▲</view>
+				</picker>
+			</view>
+			<view class="dropItem" wx:if="{{menuList[cur_num].children[__tag1__].children[drop_idx_1].children[drop_idx_2]['title']}}">
+				<picker bindchange="drop_event" data-dropper="drop_idx_2" value="{{drop_idx_2}}" range="{{menuList[cur_num].children[__tag1__].children[drop_idx_1].children}}" range-key="title">
+					<view class="dropPicker">{{menuList[cur_num].children[__tag1__].children[drop_idx_1].children[drop_idx_2]['title']}}</view>
+					<view class="dropPicker_sanjiao">▲</view>
+				</picker>
+			</view>
+			<view class="dropItem" wx:if="{{menuList[cur_num].children[__tag1__].children[drop_idx_1].children[drop_idx_2].children[drop_idx_3]['title']}}">
+				<picker bindchange="drop_event" data-dropper="drop_idx_3" value="{{drop_idx_3}}" range="{{menuList[cur_num].children[__tag1__].children[drop_idx_1].children[drop_idx_2].children}}" range-key="title">
+					<view class="dropPicker">{{menuList[cur_num].children[__tag1__].children[drop_idx_1].children[drop_idx_2].children[drop_idx_3]['title']}}</view>
+					<view class="dropPicker_sanjiao">▲</view>
+				</picker>
+			</view>
+		</view>
+		<view id="listBox">
+			<view class="list-item" bindtap="goMaterialEdit" style="display: flex;justify-content: center;align-items: center;flex-direction: column;">
+				<image class="list-item-pic" src="/imageFile/addImg.png" mode="center" style="width: 50%;"></image>
+				<view class="list-item-title">请在这里添加自己的素材</view>
+			</view>
+			<view wx:for="{{list}}" wx:key='item' class="list-item" bindtap="goContent" data-index="{{index}}" bindlongpress="deleteMaterial" data-mid="{{item.material_id}}">
+				<image class="list-item-pic"
+					src="{{item.sketch=='https://admin.cradlela-art.com'?'/imageFile/default.png':item.sketch}}"
+					mode="aspectFill"></image>
+				<block wx:if="{{item.isMyUploadMaterial}}">
+					<image class="list-item-isMy" mode="aspectFit" src="/imageFile/isMy.png"></image>
+				</block>
+				<block wx:else>
+					<image class="list-item-collect" mode="aspectFit" src="/imageFile/collect_{{item.collectState?1:0}}.png"
+					catchtap="collectFun" data-cid='{{item.id}}' data-state='{{item.collectState}}'></image>
+				</block>
+				
+				
+				<view class="list-item-title">{{item.title}}</view>
+			</view>
+		</view>
+	</view>
+
+	<view id="fixedBox">
+		<view class="fixedItem fixedItem_1" bindtap="preStep">上一步</view>
+		<view class="fixedItem fixedItem_2" bindtap="nextStep">下一步</view>
+	</view>
+
+	<picker bindchange="bindPickerChange" value="{{screenIndex}}" range-key="name" range="{{screenList}}">
+		<view class="screen-box">
+			<image src="../../imageFile/screen.png" class="img-icon" mode="center"></image>
+			<view>{{screenList[screenIndex].value?'1：'+screenList[screenIndex].value:"全部"}}</view>
+		</view>
+	</picker>
+
+
+</scroll-view>

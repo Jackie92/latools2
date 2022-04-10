@@ -1,0 +1,71 @@
+/* pages/schedule/mine.wxss */
+#body {
+	width: 750rpx;
+	background-color: #eee;
+}
+
+#part_1 {
+	position: fixed;
+	width: 750rpx;
+	height: 200rpx;
+	background-color: #fff;
+	box-shadow: 0px 0px 10px #333;
+}
+
+.p1-class-1 {
+	flex: 0 0 auto;
+	border: 4rpx solid #E7D693;
+	border-radius: 13rpx;
+	line-height: 60rpx;
+	padding: 0 20rpx;
+	margin-right: 10rpx;
+	max-width: 250rpx;
+	overflow: hidden;
+	text-overflow: ellipsis;
+  	white-space: nowrap;
+}
+.p1-class-1::after{
+	content:"∨";
+	padding: 2rpx 10rpx;
+	border-radius: 50%;
+	color: #bbb;
+	background-color: #eee;
+	position: relative;
+	margin-left: 10rpx;
+
+}
+.p1-class-2 {
+	flex:0 0 auto;padding: 0 10rpx;color: #E2E2E2;border-radius: 10rpx;
+}
+.p1-active{
+	background-color: #FED32E;
+	color: #000!important;
+}
+
+#part_2 {
+	width: 700rpx;
+	min-height: calc(100vh - 200rpx);
+	padding: 25rpx;
+	padding-top: 200rpx;
+	
+}
+
+.p2-class-1 {
+	width: 660rpx;
+	min-height: 100rpx;
+	margin: 20rpx 0rpx;
+	background-color: #fff;
+	border: 4rpx solid #E7D693;
+	border-radius: 20rpx;
+	padding: 20rpx;
+}
+
+.p2-class-2 {
+	color: #333;
+	margin: 20rpx 0rpx;
+	max-width: 600rpx;
+	overflow: hidden;
+	text-overflow: ellipsis;
+  	white-space: nowrap;
+}
+

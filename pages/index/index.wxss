@@ -1,0 +1,223 @@
+/**user.wxss**/
+page{
+	width: 100%;
+	height: 100%;
+}
+#body {
+	background-color: #fafafa;
+}
+#ad_box{
+	position: fixed;
+	width: 750rpx;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+	z-index: 999999;
+}
+#ad_img{
+	width: 520rpx;
+	height: 780rpx;
+	margin: 80rpx 115rpx 0rpx 115rpx;
+	border: 6rpx solid #fff;
+	border-radius: 24rpx;
+}
+#ad_btn{
+	width: 320rpx;
+	height: 80rpx;
+	margin: 40rpx auto;
+	font-size: 44rpx;
+	font-weight: bolder;
+	border-radius: 40rpx;
+	background: linear-gradient(220deg, #FFF29E 0%, #FFE065 100%);
+	text-align: center;
+	line-height: 80rpx;
+}
+
+
+#part_1 {
+	width: 750rpx;
+	min-height: 375rpx;
+
+}
+
+#lunbo {
+	width: 750rpx;
+	height: 375rpx;
+}
+
+.lunbo-pic {
+	width: 750rpx;
+	height: 375rpx;
+}
+
+
+/* 默认指示点的样式 */
+.swiper{
+	width: 750rpx;
+	height: 375rpx;
+	position: relative;
+	z-index: 99;
+}
+.swiper .wx-swiper-dot {
+	width: 16rpx;
+	height: 8rpx;
+	background: rgba(0, 0, 0, 0.41);
+	border-radius: 6rpx;
+}
+
+/* 选中指示点的样式 */
+.swiper .wx-swiper-dot.wx-swiper-dot-active {
+	background: white;
+}
+
+#searchBox {
+	margin-top: 20rpx;
+	position: relative;
+	z-index: 1000;
+}
+
+#searchInput {
+	width:640rpx;
+	height: 100rpx;
+	margin: 0 auto;
+	line-height: 100rpx;
+	color:#292E3A;
+	background: #FFFFFF;
+	box-shadow: 0px 4rpx 40rpx 0px rgba(102, 102, 102, 0.12);
+	border-radius: 20rpx;
+	padding: 5rpx 30rpx;
+	font-size:26rpx;
+}
+#selectBtn{
+	position: absolute;
+    width: 100rpx;
+    height: 100rpx;
+	z-index: 1200;
+    margin-top: -100rpx;
+    margin-left: 600rpx;
+}
+.deg180{
+	transform:rotate(180deg);
+}
+#part_2 {
+	background-color: #fff;
+	width: 750rpx;
+	min-height: 500rpx;
+	border-radius: 24rpx 24rpx 0 0;
+	box-shadow: 0px 4px 40px 0px rgba(102, 102, 102, 0.12);
+	padding-bottom: 200rpx;
+	padding-top:10rpx;
+	margin-top: 22rpx;
+}
+
+#myLike {
+	width: 50%;
+	font-size: 36rpx;
+	font-weight: bolder;
+	padding-top: 26rpx;
+	padding-left: 38rpx;
+	z-index: 9;
+}
+
+#myLike_hr {
+	width: 210rpx;
+	height: 24rpx;
+	background: linear-gradient(315deg, rgba(255, 255, 255, 0) 0%, rgba(255, 242, 158, 0.3) 10%, #FFE065 80%);
+	margin-top: -25rpx;
+	z-index: 1;
+}
+
+.logo_line {
+	width: 138rpx;
+	height: 26rpx;
+	position: relative;
+	margin-right: 8rpx;
+}
+
+#tagBox {
+	margin-top: 38rpx;
+	padding: 0 32rpx;
+}
+
+#tag_1_Row {
+	white-space: nowrap;
+}
+
+.tagItem-active {
+	background-color: #FFE065 !important;
+}
+
+.tagItem {
+	flex: 1 1 auto;
+	height: 60rpx;
+	margin-right: 12rpx;
+	background-color: rgba(211, 211, 211, 0.15);
+	display: inline-block;
+	border-radius: 8rpx;
+	color: #292E3A;
+	text-align: center;
+	line-height: 60rpx;
+	padding: 8rpx 20rpx;
+	font-weight: 500;
+	font-size: 24rpx;
+}
+
+.scroll-view_H {
+	white-space: nowrap;
+}
+
+.scroll-view-item_H {
+	display: inline-block;
+	min-width: 84rpx;
+}
+
+#listBox {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 0 32rpx;
+	margin-top: 40rpx;
+	justify-content: space-between;
+}
+
+.list-item {
+	width: 334rpx;
+	background-color: #fff;
+	border-radius: 16rpx;
+	box-shadow: 0px 4px 40px 0px rgba(102, 102, 102, 0.12);
+	margin-bottom: 20rpx;
+}
+
+.list-item-pic {
+	width: 100%;
+	height: 167rpx;
+	border-radius: 16rpx;
+}
+
+.list-item-title {
+	padding: 16rpx;
+	font-size: 26rpx;
+}
+
+.list-item-collect{
+	/* position: relative;
+	width: 35rpx;
+	height: 35rpx;
+	top: -90rpx;
+    left: 250rpx;
+	padding: 20rpx; */
+	width: 35rpx;
+	height: 35rpx;
+	padding: 20rpx; 
+	margin-top: -100rpx;
+	margin-left:250rpx;
+}
+
+#part_3 {
+	width: 750rpx;
+	height: 128rpx;
+	background-color: #fff;
+	box-shadow: 0px 4px 40px 0px rgba(102, 102, 102, 0.2);
+	position: fixed;
+	bottom: 0px;
+	z-index: 99;
+}
+

@@ -1,0 +1,217 @@
+<!--pages/design/resume.wxml-->
+<view class="body" wx:if="{{editState}}">
+
+	<view class='part_1'>
+		<image src="/imageFile/target.png" class="target"></image>
+		<view class="p1_div">
+			<view class="nickname">{{userInfo.nickName}}</view>
+			<view class="userid">ID:{{userInfo.id}}</view>
+		</view>
+		<image src="{{userInfo.avatarUrl}}" class="headImg"></image>
+	</view>
+
+
+	<view class="part_2">
+		<view class="group">
+			<view class="group_title">本科就读学校</view>
+			<input class="group_input" placeholder="请输入" value="{{userInfo.resume_xuexiao}}" bindinput='inputer' data-keyname="resume_xuexiao" />
+		</view>
+		<view class="group">
+			<view class="group_title">本科就读专业</view>
+			<input class="group_input" placeholder="请输入" value="{{userInfo.resume_zhuanye}}" bindinput='inputer' data-keyname="resume_zhuanye" />
+		</view>
+
+	</view>
+
+	<view class="part_2">
+		<view style="font-weight: bolder;">考试科目</view>
+		<view class="short">
+			<view class="short_title">考试时间</view>
+			<picker class="short_picker" fields="month" mode="date" value="{{pick_1}}" start="2022-01-01" end="2033-01-01" bindchange="pick_date">
+				<view class="picker">
+					<block wx:if="{{userInfo.resume_kaoshishijian}}">{{userInfo.resume_kaoshishijian}}</block>
+					<block wx:elif="{{pick_1}}"> {{pick_1}} </block>
+					<block wx:else> 请选择 </block>
+				</view>
+			</picker>
+		</view>
+
+		<view class="short">
+			<view class="short_title">考试性质</view>
+			<picker class="short_picker" bindchange="pick_xingzhi" value="{{pick_2_idx}}" range="{{xingzhi}}">
+				<view class="picker">
+					<block wx:if="{{userInfo.resume_kaoshixingzhi}}">{{userInfo.resume_kaoshixingzhi}}</block>
+					<block wx:elif="{{pick_2}}"> {{pick_2}} </block>
+					<block wx:else> 请选择 </block>
+				</view>
+			</picker>
+		</view>
+	
+	</view>
+
+	<view class="part_2">
+		<view style="font-weight: bolder;">报考信息</view>
+		<view class="short">
+			<view class="short_title">招生单位</view>
+			<picker class="short_picker" bindchange="pick_xuexiao_fun" value="{{pick_xuexiao_idx}}" range="{{pick_xuexiao}}" range-key="name">
+				<view class="picker">
+					<block wx:if="{{userInfo.resume_zhaoshengdanwei}}">{{userInfo.resume_zhaoshengdanwei}}</block>
+					<block wx:elif="{{pick_xuexiao_idx}}"> {{pick_xuexiao[pick_xuexiao_idx]['name']}} </block>
+					<block wx:else> 请选择 </block>
+				</view>
+			</picker>
+		</view>
+		
+		<view class="short">
+			<view class="short_title">所属学院</view>
+			<picker class="short_picker" bindchange="pick_yuanxi_fun" value="{{pick_yuanxi_idx}}" range="{{pick_yuanxi}}" range-key="yx_name">
+				<view class="picker">
+				
+					<block wx:if="{{userInfo.resume_suoshuxueyuan}}">{{userInfo.resume_suoshuxueyuan}}</block>
+					<block wx:elif="{{pick_yuanxi_idx}}"> {{pick_yuanxi[pick_yuanxi_idx]['yx_name']}} </block>
+					<block wx:else> 请选择 </block>
+				</view>
+			</picker>
+		</view>
+
+		<view class="short">
+			<view class="short_title">报考专业</view>
+			<picker class="short_picker" bindchange="pick_zhuanye_fun" value="{{pick_zhuanye_idx}}" range="{{pick_zhuanye}}" range-key="mingcheng">
+				<view class="picker">
+				
+					<block wx:if="{{userInfo.resume_baokaozhuanye}}">{{userInfo.resume_baokaozhuanye}}</block>
+					<block wx:elif="{{pick_zhuanye_idx}}"> {{pick_zhuanye[pick_zhuanye_idx]['mingcheng']}} </block>
+					<block wx:else> 请选择 </block>
+				</view>
+			</picker>
+		</view>
+	</view>
+
+
+	<view class="part_2">
+		<view style="font-weight: bolder;">考试科目</view>
+		<block wx:for="{{kemuData}}" wx:for-index="km_idx" wx:for-item='km_item' wx:key="*this">
+			<view class="kemu">
+			<view class="kemu_title">{{kmList[km_idx]}}</view>
+			<view class="kemu_content">
+				<block wx:for="{{km_item}}" wx:for-index="mc_idx" wx:for-item='mc_item'>
+					<view class="kemu_item">{{mc_item.kemu}}</view>
+				</block>
+			</view>
+			</view>
+		</block>
+		
+	</view>
+
+
+	<view class="part_2">
+		<view style="font-weight: bolder;">联系地址</view>
+		<view class="short">
+			<view class="short_title"><image src="/imageFile/appointment/icon_person.png" class="short_img"></image></view>
+			<input type="text" class="short_picker" placeholder="请输入联系姓名" value="{{userInfo.resume_name}}" bindinput='inputer' data-keyname="resume_name"/>
+		</view>
+		<view class="short">
+			<view class="short_title"><image src="/imageFile/appointment/icon_phone.png" class="short_img"></image></view>
+			<input type="text" class="short_picker" placeholder="请输入联系电话" value="{{userInfo.resume_phone}}" bindinput='inputer' data-keyname="resume_phone" />
+		</view>
+		<view class="short">
+			<view class="short_title"><image src="/imageFile/appointment/icon_location.png" class="short_img"></image></view>
+			<textarea class="short_textarea" bindblur="bindTextAreaBlur" placeholder="请输入联系地址" value="{{userInfo.resume_address}}"  bindinput='inputer' data-keyname="resume_address"></textarea>
+		</view>
+	</view>
+
+	<view class="subBtn" bindtap="submiter">完成</view>
+</view>
+
+
+<view class="body" wx:if="{{!editState}}"> 
+
+<view class='part_1'>
+	<image src="/imageFile/target.png" class="target"></image>
+	<view class="p1_div">
+		<view class="nickname">{{userInfo.nickName}}</view>
+		<view class="userid">ID:{{userInfo.id}}</view>
+	</view>
+	<image src="{{userInfo.avatarUrl}}" class="headImg"></image>
+</view>
+
+<view bindtap="editState" style="text-align: right;margin-top: 50rpx;">编辑信息<image src="/imageFile/edit_icon.png" style="width: 24rpx;height: 24rpx;margin-left: 20rpx;" ></image></view>
+<view class="part_2">
+	<view class="group">
+		<view class="group_title">本科就读学校</view>
+		<view class="group_input">{{userInfo.resume_xuexiao}}</view>
+	</view>
+	<view class="group">
+		<view class="group_title">本科就读专业</view>
+		<view class="group_input">{{userInfo.resume_zhuanye}}</view>
+	</view>
+
+</view>
+
+<view class="part_2">
+	<view style="font-weight: bolder;">考试科目</view>
+	<view class="short">
+		<view class="short_title">考试时间</view>
+		<view class="short_picker">{{userInfo.resume_kaoshishijian}}</view>
+	</view>
+
+	<view class="short">
+		<view class="short_title">考试性质</view>
+		<view class="short_picker" >{{userInfo.resume_kaoshixingzhi}}</view>
+	</view>
+
+</view>
+
+<view class="part_2">
+	<view style="font-weight: bolder;">报考信息</view>
+	<view class="short">
+		<view class="short_title">招生单位</view>
+		<view class="short_picker"  >{{userInfo.resume_zhaoshengdanwei}}</view>
+	</view>
+	
+	<view class="short">
+		<view class="short_title">所属学院</view>
+		<view class="short_picker">{{userInfo.resume_suoshuxueyuan}}</view>
+	</view>
+
+	<view class="short">
+		<view class="short_title">报考专业</view>
+		<view class="short_picker" >{{userInfo.resume_baokaozhuanye}}</view>
+	</view>
+</view>
+
+
+<view class="part_2">
+	<view style="font-weight: bolder;">考试科目</view>
+	<block wx:for="{{kemuData}}" wx:for-index="km_idx" wx:for-item='km_item' wx:key="*this">
+		<view class="kemu">
+		<view class="kemu_title">{{kmList[km_idx]}}</view>
+		<view class="kemu_content">
+			<block wx:for="{{km_item}}" wx:for-index="mc_idx" wx:for-item='mc_item'>
+				<view class="kemu_item">{{mc_item.kemu}}</view>
+			</block>
+		</view>
+		</view>
+	</block>
+	
+</view>
+
+
+<view class="part_2">
+	<view style="font-weight: bolder;">联系地址</view>
+	<view class="short">
+		<view class="short_title"><image src="/imageFile/appointment/icon_person.png" class="short_img"></image></view>
+		<view type="text" class="short_picker" >{{userInfo.resume_name}}</view>
+	</view>
+	<view class="short">
+		<view class="short_title"><image src="/imageFile/appointment/icon_phone.png" class="short_img"></image></view>
+		<view type="text" class="short_picker">{{userInfo.resume_phone}}</view>
+	</view>
+	<view class="short">
+		<view class="short_title"><image src="/imageFile/appointment/icon_location.png" class="short_img"></image></view>
+		<view class="short_textarea" bindblur="bindTextAreaBlur" >{{userInfo.resume_address}}</view>
+	</view>
+</view>
+
+
+</view>

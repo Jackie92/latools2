@@ -1,0 +1,134 @@
+/* pages/design/resume.wxss */
+
+.body{
+	width: 750rpx;
+	padding: 100rpx;
+	box-sizing: border-box;
+}
+.part_1{
+	text-align: right;
+}
+.target{
+	width: 100rpx;
+	height: 100rpx;
+	float: left;
+}
+.p1_div{
+	display: inline-block;
+}
+.nickname{
+	font-size: 30rpx;
+	line-height: 50rpx;
+	max-width: 200rpx;
+	text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;  
+}
+.userid{
+	font-size: 30rpx;
+	line-height: 50rpx;
+}
+.headImg{
+	width: 100rpx;
+	height: 100rpx;
+	margin-left: 20rpx;
+	vertical-align: sub;
+	border-radius: 50%;
+}
+
+.part_2{
+	margin-top: 100rpx;
+}
+
+.group{
+	margin-bottom: 20rpx;
+}
+
+.group_title{
+	font-size: 24rpx;
+}
+.group_input{
+	margin-top: 10rpx;
+	background-color: rgba(250, 198, 68, 100);
+	border-radius: 20rpx;
+	text-align: center;
+	font-size: 24rpx;
+	height: 30rpx;
+	padding: 5rpx 0rpx;
+
+}
+.short{
+	display: flex;
+	justify-content: space-between;
+	margin: 10rpx 0rpx;
+	font-size: 24rpx;
+}
+.short_title{
+	flex:0 1 auto;
+	padding-right: 50rpx;
+	line-height: 45rpx;
+}
+.short_picker{
+	flex: 1 1 auto;
+	background-color: rgba(250, 198, 68, 100);
+	text-align: center;
+	height: 30rpx;
+	border-radius: 20rpx;
+	font-size: 24rpx;
+	padding: 10rpx 0rpx;
+}
+
+.short_img{
+	width: 50rpx;
+	height: 50rpx;
+}
+
+.short_textarea{
+	flex: 1 1 auto;
+	background-color: rgba(250, 198, 68, 100);
+	text-align: center;
+	height: 200rpx;
+	border-radius: 20rpx;
+	font-size: 24rpx;
+	padding: 20rpx 20rpx;
+}
+
+
+.kemu{
+	display: flex;
+	justify-content: space-between;
+	margin: 10rpx 0rpx;
+	font-size: 24rpx;
+}
+.kemu_title{
+	flex:0 0 auto;
+	min-width: 100rpx;
+	padding-right: 50rpx;
+	line-height: 45rpx;
+}
+.kemu_content{
+	flex: 1 1 auto;
+	display: flex;
+	flex-wrap: wrap;
+}
+.kemu_item{
+	flex: 0 0 auto;
+	margin: 10rpx 10rpx;
+	background-color: rgba(250, 198, 68, 100);
+	text-align: center;
+	height: 30rpx;
+	border-radius: 20rpx;
+	font-size: 24rpx;
+	padding: 10rpx 10rpx;
+}
+
+.subBtn{
+	width: 500rpx;
+	height: 80rpx;
+	border-radius: 80rpx;
+	line-height: 80rpx;
+	font-size: 30rpx;
+	text-align: center;
+	margin: 100rpx auto;
+	background-color: rgba(250, 198, 68, 100);
+}

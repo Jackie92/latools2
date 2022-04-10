@@ -1,0 +1,184 @@
+<view id="body">
+	<!-- 详情弹框 -->
+
+	<scroll-view id="alertBg" wx:if="{{CK_show}}" bindtap="CK_hide">
+		<view id="alertBox">
+			<block wx:if="{{!videoShow}}">
+
+					<image class="alertPic" src="{{CK_show['pic']}}" mode="aspectFill"></image>
+					<image src="/imageFile/videoBtn.png" id="videoBtn" catchtap="changVideoShow" wx:if="{{CK_show['video'] && CK_show['video']!=0 && CK_show['video']!='undefined'}}"></image>
+		
+				
+			</block>
+			<block wx:else>
+				<video class="alertPic"  src="{{CK_show['video']?CK_show['video']:''}}" enable-auto-rotation="true" id="videoBox" catchtap="catchVideo" wx:if="{{videoShow}}"></video>
+			</block>
+			<view id="alertContent">
+				<view id="alertMubiao"><text class="weight">问题类目：</text>{{type_list[CK_show['LM_id']]}}</view>
+				<view id="alertGongju"><text class="weight">问题内容：</text>{{type_list[CK_show['MC_id']]}}</view>
+			</view>
+			<view id="alertDetail">
+				{{CK_show['detail']}}
+			</view>
+			<view id="alertFF" wx:if="{{CK_show['FF_id'].length>0}}">
+				<view id="FF_title">解决方法</view>
+				<view id="FF_line"></view>
+				<view class="FF_item" wx:for="{{CK_show['FF_id']}}" wx:key="item">{{type_list[item]}}</view>
+			</view>
+		</view>
+	</scroll-view>
+
+	<!-- 作业和数据统计的tab -->
+	<view class="tab-flex">
+		<view class="tab-item {{tabNow=='work'?'tab-active':''}}" bindtap="tabNow" data-now="work">作业详情</view>
+		<view class="tab-item {{tabNow=='data'?'tab-active':''}}" bindtap="tabNow" data-now="data">数据统计</view>
+	</view>
+
+
+	<!-- 作业详情 -->
+	<view class="W-box" wx:if="{{tabNow=='work'}}">
+
+		<!-- 筛选器部分 -->
+		<view class="F-box {{tipList?'F-box-active':'F-box-none'}}">
+			<view class="F-input">
+				<view class="F-selected" catchtap="showCheckList">
+					{{keyword}}
+				</view>
+				<block wx:if="{{dataList.length>0}}">
+					<scroll-view class="F-list" wx:if="{{showList}}" scroll-y="true">
+						<view class="F-row" wx:for="{{dataList}}" wx:key="item" catchtap="chooseBtn"
+							data-idx="{{index}}">
+							<view class="row-title">{{item.project_name}}</view>
+							<view class="row-state row-state-{{item.readed}}"></view>
+						</view>
+					</scroll-view>
+				</block>
+				<block wx:elif="{{showList}}">
+					<scroll-view class="F-list" scroll-y="true">
+						<view class="F-row">
+							<view class="row-title">暂时没有</view>
+						</view>
+					</scroll-view>
+				</block>
+
+			</view>
+		</view>
+		<view wx:if="{{tipList}}" style="position: absolute;">
+			<block wx:if="{{big_pic}}">
+				<view class="W-image"
+					style=" margin:30rpx 0rpx;width:750rpx;height:{{big_pic.bigh / big_pic.bigw *750}}rpx;background-image:url('{{tipList[tap_cur_D].pic}}');background-position:-{{big_pic.bigl*4}}rpx -{{big_pic.bigt*4}}rpx; background-size:400%;background-repeat:no-repeat;"
+					catchtap="big_hide">
+				</view>
+			</block>
+			<block wx:else>
+				<block wx:for="{{marks}}" wx:key="item">
+					<view class="red-area"
+						style="width:{{item.red_W}}rpx;height:{{item.red_H}}rpx;left:{{item.red_L}}rpx;top:{{item.red_T}}rpx;"
+						catchtap="big_show" data-bigw="{{item.red_W}}" data-bigh="{{item.red_H}}"
+						data-bigl="{{item.red_L}}" data-bigt="{{item.red_T}}">
+					</view>
+				</block>
+
+				<image class="W-image" style="width:750rpx;height:375rpx;" src="{{tipList[tap_cur_D].pic}}">
+				</image>
+			</block>
+			<view style="margin:0 auto;width:700rpx;">
+				<scroll-view class="scroll-view_H" scroll-x="true" style="width: 100%;height: 80rpx;margin-top:20rpx;">
+					<view bindtap="tagTap0"
+						class="scroll-view-item_H menuItem {{tap_cur_Q==index?'menuItem-active':''}}"
+						wx:for="{{LM_list}}" wx:key="item" data-num="{{index}}" title="123">
+						{{item.title}}
+					</view>
+				</scroll-view>
+				<scroll-view scroll-y="true" class="W-list" style="height:calc(100vh - 800rpx);">
+					<view wx:for="{{tipList}}" wx:key="item" class="W-wrap {{tap_cur_D==index?'W-row-active':''}}" wx:if="{{item.LM_id==LM_cur}}">
+						<view class="W-row  W-tip-{{item.state}}" bindtap="tagTap1" data-num="{{index}}">
+							<view class="W-line"></view>
+							<view class="W-title {{item.read_time?'':'W-title-unread'}}">{{item.title}}：</view>
+							<view class="W-detail">{{item.detail}}</view>
+						</view>
+						<view class="W-chakan" wx:if="{{tap_cur_D==index}}" bindtap="tagTapChakan" data-num="{{index}}">
+							查看
+						</view>
+					</view>
+
+				</scroll-view>
+
+				<view id="work_btn" catchtap="uploadWork">
+					<image id="work_img" src="/imageFile/work_btn.png"></image>提交修改作业
+				</view>
+			</view>
+
+		</view>
+	</view>
+
+	<!-- 数据统计部分 -->
+	<view wx:if="{{tabNow=='data'}}">
+		<!-- 筛选器部分 -->
+		<view class="F-box {{filter_list?'F-box-active':'F-box-none'}}">
+			<view class="F-input">
+				<view class="F-selected" catchtap="showCheckList">
+					选择课程
+				</view>
+				<view class="{{(dataList.length>0 && showList) ? '':'display_none'}}">
+					<scroll-view class="F-list {{ showList ? '':'display_none'}}" scroll-y="true">
+						<checkbox-group bindchange="changeCheckBox">
+							<view class="F-row" wx:for="{{dataList}}" wx:key="item">
+								<view class="row-checkbox">
+									<checkbox value="{{item.id}}" />
+								</view>
+								<view class="row-title">{{item.project_name}}</view>
+							</view>
+						</checkbox-group>
+					</scroll-view>
+					<view class="F-btn {{ showList ? '':'display_none'}}" catchtap="submitBtn">
+						确认选择
+					</view>
+				</view>
+				<block wx:if="{{!dataList.length>0 && showList}}">
+					<scroll-view class="F-list" scroll-y="true">
+						<view class="F-row">
+							<view class="row-title">暂时没有</view>
+						</view>
+					</scroll-view>
+				</block>
+
+			</view>
+		</view>
+		<view wx:if="{{filter_list}}">
+
+			<view class="D-box">
+				<view class="D-row" wx:for="{{LM_counter}}" wx:key="item">
+					<view class="D-title">{{item.title}}</view>
+					<view class="D-progress">
+						<view class="D-line D-lvl-{{item.level}}"></view>
+						<view class="D-num">{{item.counter}}</view>
+
+					</view>
+					<view class="D-btn" catchtap="show_C" data-id="{{item.LM_id}}">查看</view>
+				</view>
+			</view>
+
+			<view class="C-map" catchtap="hide_C" wx:if="{{show_C}}">
+				<view class="C-box" catchtap='stopCatch'>
+					<view class="C-leimu">{{LM_title}}</view>
+					<scroll-view scroll-y="true" style="max-height:700rpx;padding-bottom:50rpx;">
+						<view class="C-row" wx:for="{{MC_counter}}" wx:key="item">
+							<view class="C-title{{tap_cur_L==index?'-active':''}}" catchtap="tagTap2"
+								data-num="{{index}}">
+								<text style="color:#888;">问题1：</text> {{item.title}}
+							</view>
+							<view class="C-progress">
+								<view class="C-line D-lvl-{{item.level}}"></view>
+								<view class="C-num">{{index}}</view>
+							</view>
+						</view>
+					</scroll-view>
+				</view>
+
+			</view>
+		</view>
+
+	</view>
+
+</view>

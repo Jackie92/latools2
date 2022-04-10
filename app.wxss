@@ -1,0 +1,103 @@
+/**app.wxss**/
+.font--weight{
+  font-weight: bolder;
+}
+.font-22{
+  font-size: 22pt;
+}
+.font-17{
+  font-size: 17pt;
+}
+.font-15{
+  font-size: 15pt;
+}
+
+.font-12{
+  font-size: 12pt;
+}
+/* 导航栏样式 */
+.nav-box {
+	display: flex;
+}
+
+.nav-item-1 {
+	flex: 0 0 254rpx;
+	margin-right: 100rpx;
+}
+
+.nav-item-2 {
+	flex: 0 0 160rpx;
+	display: flex;
+	margin-right: 70rpx;
+}
+
+.nav-item-3 {
+	flex: 0 0 160rpx;
+	display: flex;
+}
+
+.nav-1-pic {
+	width: 190rpx;
+	height: 34rpx;
+	position: relative;
+	top: 34rpx;
+	left: 14rpx;
+}
+
+.nav-2-pic {
+	width: 42rpx;
+	height: 42rpx;
+	position: relative;
+	top: 28rpx;
+}
+
+.nav-3-pic {
+	width: 40rpx;
+	height: 40rpx;
+	position: relative;
+	top: 28rpx;
+}
+
+.nav-2-title {
+	flex: 0 0 auto;
+	font-size: 24rpx;
+	position: relative;
+	top: 32rpx;
+	left: 10rpx;
+	vertical-align: top;
+	z-index: 1000;
+}
+
+.nav-2-line {
+	width: 130rpx;
+	height: 32rpx;
+	background: linear-gradient(300deg, rgba(255, 255, 255, 0) 0%, #FFE065 40%, #FFE065 88%, rgba(255, 255, 255, 0) 88%);
+	position: absolute;
+	z-index: 999;
+	top: 34rpx;
+	margin-left: 30rpx
+}
+
+.nav-3-title {
+	font-size: 24rpx;
+	position: relative;
+	top: 32rpx;
+	left: 10rpx;
+	vertical-align: top;
+	z-index: 1000;
+}
+
+.nav-3-line {
+	width: 110rpx;
+	height: 32rpx;
+	background: linear-gradient(300deg, rgba(255, 255, 255, 0) 0%, #FFE065 60%, #FFE065 88%, rgba(255, 255, 255, 0) 88%);
+	position: absolute;
+	z-index: 999;
+	top: 34rpx;
+	margin-left: 40rpx
+}
+#part_3{display: none!important;}
+.swiper{
+	height: 375rpx;
+}
+/* ----------------------- */

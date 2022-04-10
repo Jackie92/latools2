@@ -1,0 +1,141 @@
+/**user.wxss**/
+#body {
+	padding-top: 50rpx;
+	background-color: #fafafa;
+}
+
+#topBox {
+
+	background: #fff;
+	position: relative;
+	z-index: 999;
+	border-radius: 60rpx 60rpx 0 0;
+	box-shadow: 0px 4px 30px 0px rgba(102, 102, 102, 0.4);
+}
+
+#myLike {
+	width: 95%;
+	font-size: 36rpx;
+	font-weight: bolder;
+	padding-top: 56rpx;
+	padding-left: 38rpx;
+	z-index: 9;
+}
+
+#myLike_hr {
+	width: 210rpx;
+	height: 24rpx;
+	background: linear-gradient(315deg, rgba(255, 255, 255, 0) 0%, rgba(255, 242, 158, 0.3) 10%, #FFE065 80%);
+	margin-top: -25rpx;
+	z-index: 1;
+}
+
+.sketch_mod{
+	width: 350rpx!important;
+	height: 700rpx!important;
+	margin:0rpx 200rpx ;
+}
+#part_1 {
+	width: 750rpx;
+	background-color: #fff;
+	display: flex;
+	position: relative;
+	z-index: 999;
+	padding-top: 20rpx;
+}
+
+#stepNum{
+	width: 300rpx;
+	font-size: 24rpx;
+	color: #6E7586;
+	position: relative;
+	left: 34rpx;
+	top: 6rpx;
+}
+#collectBtn{
+	width: 40rpx;
+	height: 35rpx;
+	position: absolute;
+	right: 40rpx;
+}
+
+
+
+#part_2 {
+	background-color: #fff;
+	padding: 62rpx;
+}
+
+
+.step {
+	width: 100%;
+	padding: 36rpx 16rpx;
+	border-left: 2px dotted #B3B6CB;
+}
+
+.step::before {
+	content: ' ';
+	position: absolute;
+	width: 12rpx;
+	height: 12rpx;
+	border-radius: 50%;
+	background: #FF9F00;
+	margin-top: 15rpx;
+	margin-left: -25rpx;
+}
+
+
+
+#poster{
+	width: 686rpx;
+	height: 340rpx;
+	margin: 20rpx 32rpx;
+	border-radius: 16rpx;
+}
+
+/* 默认指示点的样式 */
+.swiper{
+	width: 750rpx;
+	height: 340rpx;
+	position: relative;
+	z-index: 99;
+
+}
+.swiper .wx-swiper-dot {
+	width: 16rpx;
+	height: 8rpx;
+	background: rgba(0, 0, 0, 0.41);
+	border-radius: 6rpx;
+}
+
+/* 选中指示点的样式 */
+.swiper .wx-swiper-dot.wx-swiper-dot-active {
+	background: white;
+}
+.lunbo-pic{
+	width: 750rpx;
+	height: 375rpx;
+}
+
+
+
+#videoMap{
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	background-color: rgba(0,0,0,0.5);
+	z-index: 999999;
+}
+
+#videoBox{
+	width: 100vw;
+}
+
+#videoBtn{
+	width: 100rpx;
+	height: 100rpx;
+	position: absolute;
+    left: 630rpx;
+    margin-top: -120rpx;
+    z-index: 9999;
+}

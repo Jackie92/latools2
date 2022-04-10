@@ -1,0 +1,47 @@
+<!--pages/schedule/mine.wxml-->
+<view id="body">
+	<view id="part_1">
+		<view style="font-weight: bolder;font-size: 34rpx;margin:20rpx 40rpx;">我的预约</view>
+		<view
+			style="display: flex; justify-content: space-between; flex-wrap: nowrap; width: 700rpx; margin:0rpx 25rpx;font-size: 25rpx;font-weight: bolder;">
+			<view style="flex:0 0 auto;height: 65rpx;display: flex;">
+				<picker bindchange="pickProject" value="{{project_idx}}" range="{{project_ary}}" range-key="p_title">
+					<view class="p1-class-1">{{project_ary[project_idx].p_title}}</view>
+				</picker>
+				
+				<picker bindchange="pickDate" value="{{date_idx}}" range="{{date_ary}}">
+					<view class="p1-class-1">{{date_ary[date_idx]}}</view>
+				</picker>
+			</view>
+			<view
+				style="flex:0 0 auto;height:50rpx;display: flex;justify-content: space-between;flex-wrap: nowrap;	border: 4rpx solid #E7D693;border-radius: 13rpx;line-height: 50rpx;padding: 4rpx;">
+				<view class="p1-class-2 {{complete=='yes'?'p1-active':''}}" bindtap="completeFun" data-cur="yes">已完成
+				</view>
+				<view class="p1-class-2 {{complete=='no'?'p1-active':''}}" bindtap="completeFun" data-cur="no">未完成
+				</view>
+			</view>
+		</view>
+	</view>
+
+	<view id="part_2">
+		<block wx:if="{{sch_list.length}}" wx:for="{{sch_list}}" wx:key="item">
+		
+		<view class="p2-class-1">
+			<view class="p2-class-2"><text style="color: #888;">课程名称：</text>（第 {{item.con_id}} 讲）{{item.p_title}}</view>
+			<!-- <view class="p2-class-2">课程包名称：xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</view> -->
+			<view class="p2-class-2"><text style="color: #888;">服务状态</text>：正常</view>
+			<view class="p2-class-2"><text style="color: #888;">状　　态：</text>{{item.order_state}}</view>
+			<view class="p2-class-2"><text style="color: #888;">时　　间：</text>{{item.dayTime}}</view>
+
+		</view>
+		</block>
+		<block wx:if="{{!sch_list.length}}">
+			<view class="p2-class-1">
+				暂无符合筛选的预约记录
+			</view>
+		</block>
+
+	</view>
+
+
+</view>

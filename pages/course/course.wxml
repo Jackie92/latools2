@@ -1,0 +1,79 @@
+<!--user.wxml-->
+<view id="body">
+	<view style="background:#fff;position: relative;z-index: 999;">
+		<view id="myLike">我的设计</view>
+		<view id="myLike_hr"></view>
+	</view>
+	<view id="part_1">
+
+		<view id="listBox">
+			<view class="list-item">
+				<image class="list-item-pic" src="{{packageInfo.packagePic}}" mode="aspectFill"></image>
+				<view class="list-item-content">
+					<view class="list-item-title">{{packageInfo.title}}</view>
+					<view class="list-item-detail">{{packageInfo.detail}}
+					</view>
+					<view class="list-item-tips">
+						<view class="item-number">共{{packageInfo.project_num}}节</view>
+					</view>
+				</view>
+
+			</view>
+		</view>
+
+	</view>
+
+	<view id="part_2">
+		<scroll-view scroll-y="true" style="height:calc(100vh - 550rpx);">
+			<view class="step" wx:for="{{list}}" wx:key='item' bindtap="tapProject" data-index="{{index}}">
+				Lesson{{index+1}}：{{item.p_title}}
+			</view>
+		</scroll-view>
+	</view>
+
+	<view class="workBtn" bindtap="goWork" id="{{packageInfo.unread?'label_txt':''}}"
+		data-label="{{packageInfo.unread}}">
+		作业单
+	</view>
+</view>
+
+<scroll-view id="alertBg" wx:if="{{alertIndex>=0 && alertIndex!=null}}" bindtap="closeAlert">
+	<image class="alertPic" src="{{list[alertIndex].p_pic}}" mode="aspectFill"></image>
+	<view id="alertBox">
+		<block wx:if="{{!videoShow}}">
+
+			
+			<image src="/imageFile/videoBtn.png" id="videoBtn" catchtap="changVideoShow"
+				wx:if="{{list[alertIndex].p_video && list[alertIndex].p_video!=0 && list[alertIndex].p_video!='undefined'}}">
+			</image>
+		</block>
+		<video class="alertPic" src="{{list[alertIndex].p_video?list[alertIndex].p_video:''}}"
+			enable-auto-rotation="true" id="videoBox" catchtap="catchVideo" wx:if="{{videoShow}}"></video>
+		<view id="alertContent">
+			<view id="alertTitle">{{list[alertIndex].p_title}}</view>
+			<view id="alertStepNum">共{{list[alertIndex].stepCount}}步</view>
+			<view id="alertDetail">介绍：</view>
+			<view id="alertStepNum">{{list[alertIndex].p_detail}}</view>
+			<view style="width:100rpx;height:100rpx;border-radius:30rpx;margin:40rpx 0rpx;background-color: rgba(0, 0, 0, 0.14);text-align: center;line-height: 100rpx;"> 1 </view>
+			<view id="alertMubiao"><text class="weight">目标：</text>{{list[alertIndex].p_mubiao}}</view>
+			<view id="alertGongju"><text class="weight">工具：</text>{{list[alertIndex].p_gongju}}</view>
+		</view>
+
+		
+
+		<view id="bottomView">
+			<view id="work_btn" catchtap="uploadWork">
+				Homework
+				<image id="work_img" src="/imageFile/appointment/upload.png?1"></image>
+				
+			</view>
+			<view id="alertBtn" catchtap="goStep">GO ！</view>
+			<!-- <view id="yueke_btn" catchtap="yuekeFun">
+				<image id="yueke_img" src="/imageFile/appointment/order.png"></image>
+				<view>约课</view>
+			</view> -->
+		</view>
+		
+
+	</view>
+</scroll-view>

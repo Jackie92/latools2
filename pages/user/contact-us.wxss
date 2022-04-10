@@ -1,0 +1,18 @@
+/* pages/user/contact-us.wxss */
+#page{
+	width:750rpx ;
+}
+
+#bg{
+	width: 560rpx;
+	min-height: 720rpx;
+	margin: 50rpx 95rpx;
+}
+
+#QR{
+	width:450rpx;
+	height:450rpx;
+	position: relative;
+	top: -550rpx;
+	left: 160rpx;
+}

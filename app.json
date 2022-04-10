@@ -1,0 +1,55 @@
+{
+	"pages": [
+
+		"pages/index/index",
+		"pages/index/test",
+		"pages/user/user",
+		"pages/user/pcmac",
+		"pages/user/contact-us",
+		"pages/design/design",
+		"pages/design/resume",
+		"pages/step/step",
+		"pages/materialEdit/index",
+		"pages/content/content",
+		"pages/course/course",
+		"pages/work/work",
+		"pages/schedule/reserve",
+		"pages/schedule/mine",
+		"pages/logs/logs"
+	],
+	"window": {
+		"backgroundTextStyle": "light",
+		"navigationBarBackgroundColor": "#fff",
+		"navigationBarTitleText": "Weixin",
+		"navigationBarTextStyle": "black"
+	},
+	"tabBar": {
+		"color": "#888",
+		"selectedColor": "#000",
+		"list": [{
+				"pagePath": "pages/index/index",
+				"text": "首 页",
+				"iconPath": "/imageFile/nav_home.png",
+				"selectedIconPath": "/imageFile/nav_home.png"
+			},
+			{
+				"pagePath": "pages/design/design",
+				"text": "设 计",
+				"iconPath": "/imageFile/nav_design.png",
+				"selectedIconPath": "/imageFile/nav_design.png"
+			},
+			{
+				"pagePath": "pages/user/user",
+				"text": "我 的",
+				"iconPath": "/imageFile/nav_user.png",
+				"selectedIconPath": "/imageFile/nav_user.png"
+			}
+		]
+	},
+	"permission": {
+		"scope.userLocation": {
+			"desc": "你的位置信息将用于微信小程序" 
+		}
+	},
+	"sitemapLocation": "sitemap.json"
+}

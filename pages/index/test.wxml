@@ -1,0 +1,3 @@
+<!--pages/index/test.wxml-->
+<text>pages/index/test.wxml</text>
+<button type="primary" open-type="getUserInfo" bindgetuserinfo="getUserInfoFun">授权按钮</button>

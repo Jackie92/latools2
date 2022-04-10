@@ -1,0 +1,88 @@
+<!--user.wxml-->
+<view id="body">
+	<view id="part_1">
+		<view id="avatarBox" >
+			<block wx:if="{{userInfo.user_state}}">
+				<image id="avatarPic" bindtap="bindViewTap"
+				src="{{userInfo.avatarUrl}}"
+				mode="cover"></image>
+			</block>
+			<block wx:else>
+				<image id="avatarPic" bindtap="bindViewTap" src="/imageFile/defaultHead.png" mode="cover"></image>
+			</block>
+			
+		</view>
+		<view id="nickNameBox">
+			<block wx:if="{{userInfo.user_state}}">
+				<view id="nickName">{{userInfo.nickName}}</view>
+				<view id="phoneNumber">景观设计小口袋</view>
+			</block>
+
+			<block wx:else>
+				<view id="nickName"><button type="primary" size="mini" bindtap="getUserInfoFun" > 登录 </button></view>
+				
+			</block>
+			
+		</view>
+		<view id="logoBox">
+			<image src="/imageFile/logo_page_my.png" id="logoPic"></image>
+		</view>
+
+	</view>
+
+	<view id="part_2">
+		<view>
+			<view id="myLike">我的喜欢 </view>
+			<view id="myLike_hr"></view>
+		</view>
+
+
+		<view id="tagBox">
+			<view wx:if="{{menu_1}}">
+				<scroll-view class="scroll-view_H" scroll-x="true" style="width: 100%">
+					<view bindtap="tagTap1" class="scroll-view-item_H tagItem {{index==__tag1__?'tagItem-active':''}}"
+						wx:for="{{menu_1}}" wx:key="item" data-num="{{index}}" data-cid="{{item.id}}">
+						{{item.title}}
+					</view>
+				</scroll-view>
+			</view>
+
+			<view style="margin-top:20rpx;">
+				<scroll-view class="scroll-view_H" scroll-x="true" style="width: 100% ;margin-top:20rpx;">
+					<view bindtap="tagTap2" class="scroll-view-item_H tagItem {{index==__tag2__?'tagItem-active':''}}"
+						wx:for="{{menu_2}}" wx:key="item" data-num="{{index}}" data-cid="{{item.id}}">
+						{{item.title}}
+					</view>
+				</scroll-view>
+			</view>
+		</view>
+
+		<view id="listBox">
+			<view wx:for="{{list}}" wx:key='item' class="list-item" bindtap="goContent" data-index="{{index}}">
+				<image class="list-item-pic"
+					mode="aspectFill"
+					src="{{item.sketch?item.sketch:'/imageFile/default.png'}}"></image>
+					<image class="list-item-collect" mode="aspectFit" src="/imageFile/collect_1.png" catchtap="collectFun" data-cid='{{item.cid}}' data-state="1" ></image>
+				<view class="list-item-title">{{item.title}}</view>
+			</view>
+		</view>
+	</view>
+
+	<view id="part_3" class="nav-box">
+		<view class="nav-item-1">
+			<image bindtap="goHome" class="nav-1-pic" src="/imageFile/nav_1.png"></image>
+		</view>
+
+		<view class="nav-item-2">
+			<image bindtap="goDesign" class="nav-2-pic" src="/imageFile/nav_2.png"></image>
+			<view bindtap="goDesign" class="nav-2-title">我的设计</view>
+			<view bindtap="goDesign" class="nav-2-line" wx:if="{{__pageName__ == 'design'}}"></view>
+		</view>
+		<view class="nav-item-3">
+			<image bindtap="goMine" class="nav-3-pic" src="/imageFile/nav_3.png"></image>
+			<view bindtap="goMine" class="nav-3-title">我的</view>
+			<view bindtap="goMine" class="nav-3-line" wx:if="{{__pageName__ == 'user'}}"></view>
+		</view>
+
+	</view>
+</view>

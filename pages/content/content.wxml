@@ -1,0 +1,40 @@
+<!--user.wxml-->
+
+<view id="videoMap" catchtap="changVideoShow" wx:if="{{videoShow}}">
+	<video src="{{content.video?content.video:''}}" enable-auto-rotation="true" id="videoBox" catchtap="catchVideo"></video>
+</view>
+
+
+
+<view id="body">
+	<view id="topBox">
+		<view id="myLike">
+			{{content.title}}
+		</view>
+		<view id="myLike_hr"></view>
+		<view id="stepNum"></view>
+	</view>
+	<view id="part_1" >
+		<!-- <image s class="lunbo-pic {{content.sketch_mod?'sketch_mod?':''}}" src="{{content.sketch}}" mode="aspectFill" bindtap="preView" data-url="{{content.sketch}}"></image>
+		<image s class="lunbo-pic {{content.photo_mod?'photo_mod?':''}}" src="{{content.photo}}" mode="aspectFill" bindtap="preView" data-url="{{content.photo}}"></image> -->
+
+		<swiper class="swiper" autoplay="true" circular="true" interval="5000" duration="500">
+			<swiper-item wx:for="{{content.photo_arys}}" wx:key="item">
+				<image class="lunbo-pic" src="{{item}}" mode="aspectFill" bindtap="preView" data-url="{{item}}"></image>
+			</swiper-item>
+		</swiper>
+		
+	</view>
+	<image src="/imageFile/videoBtn.png" id="videoBtn" catchtap="changVideoShow" wx:if="{{content.video && content.video!=0 && content.video!='undefined'}}"></image>
+	<view id="part_2">
+		<view id="content">
+			<rich-text nodes="{{content.detail}}"></rich-text>
+		</view>
+
+	</view>
+
+
+
+
+
+</view>

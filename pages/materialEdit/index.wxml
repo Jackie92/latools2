@@ -1,0 +1,26 @@
+<view class="content">
+	<view class="img-select">
+		<image class="img" src="{{imgUrl}}" mode="aspectFill"></image>
+		<view class="txt" bindtap="selectImg">{{imgUrl?"重新选择":"选择图片"}}</view>
+	</view>
+	<view class="input-box">
+		<input type="text" bindinput="bindKeyInput" class="" maxlength="10" class="input" placeholder="请输入图片名称"></input>
+	</view>
+	<view class="line"></view>
+	<view class="title-box">
+		<view class="desc-txt">分类</view>
+		<view class="title">{{item.title0}} {{item.title1}} {{item.title2}}</view>
+	</view>
+	<view class="line"></view>
+	<view class="size-list-box">
+		<view class="txt">请选择该内容所适配的比例尺</view>
+		<view class="select-btn" bindtap="selectAll">ALL</view>
+		<view class="size-list">
+			<view class="{{item.select?'select-btn active':'select-btn'}}" wx:for="{{screenList}}" wx:for-item="item"
+				wx:for-index="i" bindtap="addSize" data-index="{{i}}" wx:key="key">
+				{{item.num}}
+			</view>
+		</view>
+		<view class="upload-btn" bindtap="confirm">我要上传</view>
+	</view>
+</view>
