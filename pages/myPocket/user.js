@@ -200,15 +200,30 @@ Page({
 			lessionList: [{
 				id: '1',
 				name: '科目1',
-				img: '/imageFile/defaultHead.png'
+				img: '/imageFile/defaultHead.png',
+				fuxiName: '复习计划1',
+				ddl: '2022-2-12',
+				author: 'Jackie',
+				times: 10,
+				des: '复习计划的描述复习计划的描述复习计划的描述复习计划的描述复习计划的描述复习计划的描述复习计划的描述复习计划的描述复习计划的描述复习计划的描述复习计划的描述'
 			},{
 				id: '2',
 				name: '科目2',
-				img: '/imageFile/defaultHead.png'
+				img: '/imageFile/defaultHead.png',
+				fuxiName: '复习计划2',
+				ddl: '2022-2-12',
+				author: 'Jackie',
+				times: 10,
+				des: '复习计划的描述复习计划的描述复习计划的描述复习计划的描述复习计划的描述复习计划的描述复习计划的描述复习计划的描述复习计划的描述复习计划的描述复习计划的描述'
 			},{
 				id: '3',
 				name: '科目3',
-				img: '/imageFile/defaultHead.png'
+				img: '/imageFile/defaultHead.png',
+				fuxiName: '复习计划3',
+				ddl: '2022-2-12',
+				author: 'Jackie',
+				times: 10,
+				des: '复习计划的描述复习计划的描述复习计划的描述复习计划的描述复习计划的描述复习计划的描述复习计划的描述复习计划的描述复习计划的描述复习计划的描述复习计划的描述'
 			}]
 		})
 		_this.setData({

@@ -22,29 +22,70 @@
 				<view id="nickName"><button type="primary" size="mini" bindtap="getUserInfoFun" > 登录 </button></view>
 				
 			</block>
-			
+			<!-- 学校名 -->
+			<view class="school-box">
+				<view class="school-name">{{userInfo.resume_xuexiao}}</view>
+				<view class="marjor-name">{{userInfo.resume_zhuanye}} {{userInfo.resume_baokaozhuanye}}</view>
+			</view>
 		</view>
 		<view id="logoBox">
 			<image src="/imageFile/logo_page_my.png" id="logoPic"></image>
 		</view>
-
 	</view>
-
+	<!-- 课程轮播图 -->
 	<view id="part_2">
 		<view class="swiper-des">
 			<view  class="swiper-des-block " wx:for="{{lessionList}}" wx:key="item" class="swiper-des-item">
-				<view wx:if="{{currenLession === item.id}}" class="swiper-des-block-current">{{item.name}}</view>
-				<view wx:else>{{item.name}}</view>
+				<view wx:if="{{currenLession === item.id}}" class="swiper-des-block swiper-des-block-current">{{item.name}}</view>
+				<view wx:else class="swiper-des-block">{{item.name}}</view>
 			</view>
 		</view>
-		<swiper class="swiper lession-swiper" 	bindchange="changeLession"	previous-margin="50px" 	next-margin="50px">
+		<swiper class="swiper lession-swiper" 	bindchange="changeLession"	previous-margin="70px" 	next-margin="70px">
 			<block wx:for="{{lessionList}}" wx:key="item" >
 				<swiper-item class="lession-pic" item-id="{{item.id}}" >
-					<image src="{{item.img}}" ></image>
+					<view wx:if="{{currenLession === item.id}}" class="lession-pic-body lession-pic-current">
+						<image class="lession-img" src="{{item.img}}" ></image>
+					</view>
+					<view wx:else class="lession-pic-body">
+						<image class="lession-img" src="{{item.img}}" ></image>
+					</view>
 				</swiper-item>
 			</block>
 		</swiper>
 	</view>
-
-	
+	<!-- 复习计划 -->
+	<view class="fuxi" wx:for="{{lessionList}}" wx:key="item" >
+		<view wx:if="{{currenLession === item.id}}" class="fuxi-block fuxi-block-current">
+			<view class="fuxi-name">
+				{{item.fuxiName}}
+			</view>
+			<view class="fuxi-ddl">
+				{{item.ddl}}
+			</view>
+			<view class="fuxi-author">
+				{{item.author}}
+			</view>
+			<view class="fuxi-des">
+				{{item.des}}
+			</view>
+			<view >进入课程</view>
+			<view >作业单</view>
+		</view>
+		<view wx:else class="fuxi-block">
+			<view class="fuxi-name">
+				{{item.fuxiName}}
+			</view>
+			<view class="fuxi-ddl">
+				{{item.ddl}}
+			</view>
+			<view class="fuxi-author">
+				{{item.author}}
+			</view>
+			<view class="fuxi-des">
+				{{item.des}}
+			</view>
+			<view >进入课程</view>
+			<view >作业单</view>
+		</view>
+	</view>
 </view>
