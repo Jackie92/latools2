@@ -11,7 +11,8 @@ Page({
 		__pageName__: 'user',
 		userInfo: [],
 		menu_1:[],
-
+		lessionList: [],
+		currentIndex: 0
 	},
 	onShow:function(){
 		this.getUserCatalog()
@@ -246,5 +247,18 @@ Page({
 		this.setData({
 			currenLession: e.detail.currentItemId
 		})
+	},
+
+	bindLessionTap: function (e) {
+		console.log(e.currentTarget.dataset.currentindex)
+		const lessionId = e.currentTarget.dataset.currentindex
+		const array = this.data.lessionList
+		const changeIndex = array.findIndex(function(val){
+			return val.id === lessionId 
+		})
+		this.setData({
+			currentIndex: changeIndex
+		})
+		
 	}
 })

@@ -168,6 +168,16 @@
 	left: -50px;
 	padding: 5px;
 }
+.school-name {
+	display: flex;
+	flex-direction:row; 
+	flex-wrap: nowrap; 
+}
+.sch-icon, .sch-icon image{
+	width: 15px;
+	height: 15px;
+	margin-right: 10px;
+}
 /* 课程轮播图 */
 .lession-img {
 	width: 140px;
@@ -197,17 +207,69 @@
 	padding: 5px;
 	margin:0 5px 0 5px;
 }
+.lock {
+	text-align: center;
+}
+.lock image {
+	width: 15px;
+	height: 15px;
+}
 /* 复习计划 */
 .fuxi {
 	background-color: #fafafa;
 	border-radius: 20px;
 	position:relative;
 	top: -20px;
-	padding: 10px;
 }
 .fuxi-block {
 	display: none;
+	padding: 10px;
 }
 .fuxi-block-current {
 	display: block;
+	padding: 10px;
+}
+.fuxi-name {
+	border-left: #FFE065 solid 5px;
+	padding-left: 15px;
+	color: #8A6916;
+	font-weight: 800;
+	font-size: 18px;
+}
+.fuxi-line {
+	display: flex;
+	flex-direction:row; 
+	flex-wrap: nowrap; 
+	margin: 5px 0 ;
+}
+.fuxi-line image {
+	width: 15px;
+	height: 15px;
+	margin-right: 8px;
+}
+.btm-button {
+	display: flex;
+	flex-direction:row; 
+	flex-wrap: nowrap; 
+}
+.enter-lession {
+	width: 60%;
+	text-align: center;
+	background-color: #FFFFFF;
+	border-radius: 10px;
+	margin: 5px;
+	padding: 10px 0;
+	border: #292E3A solid 1px;
+}
+.homework {
+	width: 40%;
+	text-align: center;
+	background-color: #FFE065;
+	border-radius: 10px;
+	margin: 5px;
+	padding: 10px 0;
+	border: #292E3A solid 1px;
+}
+.fuxi-plan {
+	font-size: 12px;
 }

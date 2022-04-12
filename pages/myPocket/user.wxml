@@ -24,8 +24,14 @@
 			</block>
 			<!-- 学校名 -->
 			<view class="school-box">
-				<view class="school-name">{{userInfo.resume_xuexiao}}</view>
-				<view class="marjor-name">{{userInfo.resume_zhuanye}} {{userInfo.resume_baokaozhuanye}}</view>
+				<view class="school-name">
+					<view class="sch-icon"><image src="/imageFile/update1/iconPark-trace 2@3x.png" ></image></view>
+					<view class="sch-des">{{userInfo.resume_xuexiao}}</view>
+				</view>
+				<view class="school-name">
+					<view class="sch-icon"></view>
+					<view class="sch-des">{{userInfo.resume_zhuanye}} {{userInfo.resume_baokaozhuanye}}</view>
+				</view>
 			</view>
 		</view>
 		<view id="logoBox">
@@ -35,12 +41,17 @@
 	<!-- 课程轮播图 -->
 	<view id="part_2">
 		<view class="swiper-des">
-			<view  class="swiper-des-block " wx:for="{{lessionList}}" wx:key="item" class="swiper-des-item">
-				<view wx:if="{{currenLession === item.id}}" class="swiper-des-block swiper-des-block-current">{{item.name}}</view>
-				<view wx:else class="swiper-des-block">{{item.name}}</view>
+			<view  class="swiper-des-block " wx:for="{{lessionList}}" wx:key="item" class="swiper-des-item" >
+				<view wx:if="{{currenLession === item.id}}" class="swiper-des-block swiper-des-block-current" bindtap="bindLessionTap" data-currentIndex="{{item.id}}">{{item.name}}</view>
+				<view wx:else class="swiper-des-block" bindtap="bindLessionTap"  data-currentIndex="{{item.id}}">{{item.name}}</view>
 			</view>
 		</view>
-		<swiper class="swiper lession-swiper" 	bindchange="changeLession"	previous-margin="70px" 	next-margin="70px">
+		<swiper
+			class="swiper lession-swiper"
+			bindchange="changeLession"
+			previous-margin="70px"
+			current="{{currentIndex}}"
+			next-margin="70px">
 			<block wx:for="{{lessionList}}" wx:key="item" >
 				<swiper-item class="lession-pic" item-id="{{item.id}}" >
 					<view wx:if="{{currenLession === item.id}}" class="lession-pic-body lession-pic-current">
@@ -52,6 +63,7 @@
 				</swiper-item>
 			</block>
 		</swiper>
+		<view class="lock"><image src="/imageFile/update1/unlock.png" ></image></view>
 	</view>
 	<!-- 复习计划 -->
 	<view class="fuxi" wx:for="{{lessionList}}" wx:key="item" >
@@ -59,17 +71,28 @@
 			<view class="fuxi-name">
 				{{item.fuxiName}}
 			</view>
-			<view class="fuxi-ddl">
-				{{item.ddl}}
+			<view class="fuxi-line">
+				<view class="fuxi-icon"><image src="/imageFile/update1/gray-lock.png" ></image></view>
+				<view class="fuxi-des">{{item.ddl}}</view>
+			</view>
+			<view class="fuxi-line">
+				<view class="fuxi-icon"><image src="/imageFile/update1/user.png" ></image></view>
+				<view class="fuxi-des">{{item.author}}</view>
+			</view>
+			<view class="fuxi-line">
+				<view class="fuxi-icon"><image src="/imageFile/update1/trace.png" ></image></view>
+				<view class="fuxi-des fuxi-plan">{{item.des}}</view>
 			</view>
 			<view class="fuxi-author">
-				{{item.author}}
+				
 			</view>
 			<view class="fuxi-des">
-				{{item.des}}
+				
 			</view>
-			<view >进入课程</view>
-			<view >作业单</view>
+			<view class="btm-button">
+				<view class="enter-lession">进入课程</view>
+				<view class="homework">作业单</view>
+			</view>
 		</view>
 		<view wx:else class="fuxi-block">
 			<view class="fuxi-name">
@@ -84,8 +107,10 @@
 			<view class="fuxi-des">
 				{{item.des}}
 			</view>
-			<view >进入课程</view>
-			<view >作业单</view>
+			<view class="btm-button">
+				<view class="enter-lession">进入课程</view>
+				<view class="homework">作业单</view>
+			</view>
 		</view>
 	</view>
 </view>
