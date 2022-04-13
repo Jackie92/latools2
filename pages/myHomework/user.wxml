@@ -1,0 +1,44 @@
+<!--user.wxml-->
+<view id="body">
+
+	<view class="hw-msg">
+		<view class="hw-msg-icon">
+			<view class="hw-msg-num">3</view>
+			<view class="hw-msg-icon-img">
+				<image src="/imageFile/update1/upload.png "></image>
+			</view>
+			<view class="hw-msg-des">作业通知</view>
+		</view>
+	</view>
+
+	<view class="hw-list">
+
+		<view class="hw-list-nav">
+			<view class="hw-list-nav-bar"><view class="hw-list-nav-bar-span">待阅读</view></view>
+			<view class="hw-list-nav-bar"><view class="hw-list-nav-bar-span">待点评</view></view>
+			<view class="hw-list-nav-bar"><view class="hw-list-nav-bar-span">已读</view></view>
+		</view>
+
+		<view class="hw-list-body">
+			
+			<view class="hw-list-line">
+				<view class="hw-list-line-img">
+					<image src="/imageFile/defaultHead.png"></image>
+				</view>
+				<view class="hw-list-line-des">
+					<view class="hw-list-type">
+						<view class="hw-list-type-icon">
+							<image src="/imageFile/update1/mail2.png"></image>
+						</view>
+						<view class="hw-list-type-des">待阅读</view>
+					</view>
+					<view class="hw-list-proj">作业上传项目名称</view>
+					<view class="hw-list-date">2022-2-2</view>
+				</view>
+			</view>
+
+		</view>
+		
+	</view>
+
+</view>
