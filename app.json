@@ -17,6 +17,7 @@
 		"pages/schedule/mine",
 		"pages/myPocket/user",
 		"pages/myHomework/user",
+		"pages/mySpace/user",
 		"pages/logs/logs"
 	],
 	"window": {
@@ -41,7 +42,7 @@
 				"selectedIconPath": "/imageFile/nav_design.png"
 			},
 			{
-				"pagePath": "pages/myHomework/user",
+				"pagePath": "pages/mySpace/user",
 				"text": "我 的",
 				"iconPath": "/imageFile/nav_user.png",
 				"selectedIconPath": "/imageFile/nav_user.png"

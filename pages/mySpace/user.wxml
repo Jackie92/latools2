@@ -1,0 +1,37 @@
+<!--user.wxml-->
+<view id="body">
+
+	<view class="ms-top">
+		<view class="ms-top-des">
+			<view class="ms-top-des-title">
+				我的空间积累
+			</view>
+			<view class="ms-top-des-name">
+				课程包名称
+			</view>
+			<view class="ms-top-des-time">
+				时间
+			</view>
+			<view class="ms-top-des-comment">
+				<view class="ms-top-des-comment">
+					<image src="/imageFile/update1/chart.png" ></image>
+				</view>
+				<view class="ms-top-des-comment">
+					综合评价
+				</view>
+			</view>
+		</view>
+		<view class="ms-top-pic">
+			<image src="/imageFile/defaultHead.png" ></image>
+		</view>
+	</view>
+	<view class="ms-switch">
+		基础问题 <switch color="#D29C12" checked="{{switch1Checked}}" bindchange="switch1Change"/>
+	</view>
+	<view class="ms-qus">
+		<view class="ms-qus-btn">
+			
+		</view>
+	</view>
+
+</view>
